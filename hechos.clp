@@ -5,3 +5,15 @@
 (deffacts zonas
    (zona (nombre "Zona A") (tipo 1) (personas_presentes si) (temperatura 15) (humedad 20))
 )
+
+(deffacts aire_acondicionados
+    (aire_acondicionado (zona "Zona A"))
+)
+
+(deffacts ventiladores
+    (ventilador (zona "Zona A"))
+)
+
+(deffacts racks
+    (rack (id 1) (zona "Zona A") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 220))
+)
