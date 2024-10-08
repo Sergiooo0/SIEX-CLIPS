@@ -1,7 +1,7 @@
 (deftemplate zona
    (slot nombre)
    (slot tipo) ;0: fría, 1: templada o 2: caliente.
-   (slot personas_presentes)
+   (slot personas_presentes (default 0))
    (slot temperatura (range -20 80))
    (slot humedad (range 0 100))
    (slot humo
@@ -29,6 +29,11 @@
 ;   (slot tipo)  ; Tipo de sensor: "temperatura" o "humedad"
 ;   (slot valor)   
 ;)
+(deftemplate accion 
+   (slot tipo
+      (allowed-values encender_aire_acondicionado apagar_aire_acondicionado))
+   (slot zona))
+
 (deftemplate aire_acondicionado
    (slot zona)
    (slot encendido
@@ -55,6 +60,10 @@
    (slot zona_actual) ;nombre de la zona en la que se encuentra
    )
 
+(deftemplate accion_moverse
+   (slot usuario)
+   (slot zona))
+
 (deftemplate rack
    (slot id)
    (slot zona)
@@ -68,46 +77,3 @@
          (allowed-values si no)
          (default no))
    )
-
-(defrule salir_permitido
-   ?usuario <- (usuario (id ?id) (nombre ?nom_user) (nivel_acceso ?nivel_acceso) (zona_actual ?ubi))
-   (zona (nombre ?nom_zona) (tipo ?tipo))
-   (test (>= ?nivel_acceso ?tipo))
-   (test (eq ?ubi ?nom_zona))
-   =>
-   (printout t ?nom_user " de id " ?id " ha salido de " ?ubi "." crlf)
-   (modify ?usuario (zona_actual "pasillo")) 
-)
-
-(defrule salir_denegado
-   ?usuario <- (usuario (id ?id) (nombre ?nom_user) (nivel_acceso ?nivel_acceso) (zona_actual ?ubi))
-   (zona (nombre ?nom_zona) (tipo ?tipo))
-   (test (< ?nivel_acceso ?tipo))
-   (test (eq ?ubi ?nom_zona))
-   =>
-   (printout t ?nom_user " de id " ?id " no ha podido salir de " ?ubi "." crlf)
-)
-
-(defrule activar_alerta_electrica
-   ?rack <- (rack (id ?id) (zona ?nombre_zona) (voltaje ?voltaje) (alerta_voltaje ?alerta_voltaje))
-   (or 
-      (test (< ?voltaje 210))
-      (test (> ?voltaje 230))
-   )
-   (test (eq ?alerta_voltaje no))
-   =>
-   (printout t " rack de id " ?id " en " ?nombre_zona " con voltaje fuera de rango (" ?voltaje ")." crlf)
-   (modify ?rack (alerta_voltaje si))
-)
-
-(defrule activar_alerta_electrica
-   ?rack <- (rack (id ?id) (zona ?nombre_zona) (voltaje ?voltaje) (alerta_voltaje ?alerta_voltaje))
-   (or 
-      (test (>= ?voltaje 210))
-      (test (<= ?voltaje 230))
-   )
-   (test (eq ?alerta_voltaje si))
-   =>
-   (printout t " rack de id " ?id " en " ?nombre_zona " con voltaje dentro de rango (" ?voltaje ")." crlf)
-   (modify ?rack (alerta_voltaje no))
-)

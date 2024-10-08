@@ -3,7 +3,8 @@
 )
 
 (deffacts zonas
-   (zona (nombre "Zona A") (tipo 1) (personas_presentes si) (temperatura 15) (humedad 20))
+   (zona (nombre "Zona A") (tipo 1) (personas_presentes 1) (temperatura 15) (humedad 20))
+   (zona (nombre "Pasillo") (tipo 0) (personas_presentes 0) (temperatura 15) (humedad 20))
 )
 
 (deffacts aire_acondicionados
