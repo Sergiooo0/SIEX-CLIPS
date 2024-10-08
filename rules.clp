@@ -19,27 +19,6 @@
    (retract ?accion_moverse)
 )
 
-
-;si le metemos un hecho que le mande salir, acordarse de borrarlo si no puede salir
-(defrule salir_permitido
-   ?usuario <- (usuario (id ?id) (nombre ?nom_user) (nivel_acceso ?nivel_acceso) (zona_actual ?ubi))
-   (zona (nombre ?nom_zona) (tipo ?tipo))
-   (test (>= ?nivel_acceso ?tipo))
-   (test (eq ?ubi ?nom_zona))
-   =>
-   (printout t ?nom_user " de id " ?id " ha salido de " ?ubi "." crlf)
-   (modify ?usuario (zona_actual "Pasillo")) 
-)
-
-(defrule salir_denegado
-   ?usuario <- (usuario (id ?id) (nombre ?nom_user) (nivel_acceso ?nivel_acceso) (zona_actual ?ubi))
-   (zona (nombre ?nom_zona) (tipo ?tipo))
-   (test (< ?nivel_acceso ?tipo))
-   (test (eq ?ubi ?nom_zona))
-   =>
-   (printout t ?nom_user " de id " ?id " no ha podido salir de " ?ubi "." crlf)
-)
-
 (defrule activar_alerta_electrica
    ?rack <- (rack (id ?id) (zona ?nombre_zona) (voltaje ?voltaje) (alerta_voltaje no))
    (or 
