@@ -2,8 +2,12 @@
    (slot nombre)
    (slot tipo) ;0: fría, 1: templada o 2: caliente.
    (slot personas_presentes (default 0))
-   (slot temperatura (range -20 80))
-   (slot humedad (range 0 100))
+   ;(slot temperatura (range -20 80))
+   ;(slot humedad (range 0 100))
+   (slot temperatura_min (default 10))
+   (slot temperatura_max (default 25))
+   (slot humedad_min (default 0))
+   (slot humedad_max (default 30))
    (slot humo
       (type SYMBOL) 
       (allowed-values si no)
@@ -24,11 +28,13 @@
 
 ;calefaccion_global un hecho directamente.
 
-;(deftemplate sensor
-;   (slot zona) 
-;   (slot tipo)  ; Tipo de sensor: "temperatura" o "humedad"
-;   (slot valor)   
-;)
+(deftemplate sensor
+   (slot zona) 
+   (slot tipo
+      (type SYMBOL) 
+      (allowed-values temperatura humedad))  ; Tipo de sensor: temperatura o humedad
+   (slot valor)   
+)
 (deftemplate accion 
    (slot tipo
       (allowed-values encender_aire_acondicionado apagar_aire_acondicionado))

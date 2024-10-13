@@ -1,4 +1,5 @@
 import clips
+import random
 
 # Inicializar entorno CLIPS
 environment = clips.Environment()
@@ -25,3 +26,16 @@ for fact in environment.facts():
         print(fact["id"], fact["nombre"], fact["nivel_acceso"])
 # Ejecutar las activaciones de la reglas
 environment.run()
+
+
+ #Prueba de modificacion de temperaturas
+template_sensor = environment.find_template('sensor')
+for _ in range(0, 10):
+    temperatura = random.randint(17, 40)
+    fact = template_sensor.assert_fact(zona = "Zona A",
+                                       tipo = clips.Symbol("temperatura"),
+                                       valor = temperatura)
+    environment.run()
+
+#para modificar la temperatura podríamos hacer hechos modificar (zona, tipo, nuevo_valor)
+#y reglas que cogan ese hecho, modifique y lo borren.
