@@ -30,7 +30,7 @@
    (modify ?rack (alerta_voltaje si))
 )
 
-(defrule activar_alerta_electrica
+(defrule desactivar_alerta_electrica
    ?rack <- (rack (id ?id) (zona ?nombre_zona) (voltaje ?voltaje) (alerta_voltaje si))
    (or 
       (test (>= ?voltaje 210))
