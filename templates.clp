@@ -20,6 +20,7 @@
 
 (deftemplate sala
    (slot nombre)
+   (slot zona)
    (slot iluminacion
       (type SYMBOL) 
       (allowed-values encendida apagada)
@@ -29,7 +30,6 @@
    (slot temperatura_max (default 25))
    (slot humedad_min (default 0))
    (slot humedad_max (default 30))
-
 )
 
 ;calefaccion_global un hecho directamente.
@@ -41,6 +41,7 @@
       (allowed-values temperatura humedad))  ; Tipo de sensor: temperatura o humedad
    (slot valor)   
 )
+
 (deftemplate accion 
    (slot tipo
       (allowed-values encender_aire_acondicionado apagar_aire_acondicionado))
@@ -69,7 +70,7 @@
    (slot id)
    (slot nombre)
    (slot nivel_acceso) ;0: fría, 1: templada o 2: caliente
-   (slot sala_actual) ;nombre de la zona en la que se encuentra
+   (slot sala_actual) ;nombre de la sala en la que se encuentra
    )
 
 (deftemplate accion_moverse
