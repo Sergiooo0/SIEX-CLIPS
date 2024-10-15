@@ -4,10 +4,6 @@
    (slot personas_presentes (default 0))
    ;(slot temperatura (range -20 80))
    ;(slot humedad (range 0 100))
-   (slot temperatura_min (default 10))
-   (slot temperatura_max (default 25))
-   (slot humedad_min (default 0))
-   (slot humedad_max (default 30))
    (slot humo
       (type SYMBOL) 
       (allowed-values si no)
@@ -20,16 +16,26 @@
       (type SYMBOL) 
       (allowed-values normal sensible)
       (default sensible))
+)
+
+(deftemplate sala
+   (slot nombre)
    (slot iluminacion
       (type SYMBOL) 
       (allowed-values encendida apagada)
-      (default apagada))
+      (default apagada)
+   )
+   (slot temperatura_min (default 10))
+   (slot temperatura_max (default 25))
+   (slot humedad_min (default 0))
+   (slot humedad_max (default 30))
+
 )
 
 ;calefaccion_global un hecho directamente.
 
 (deftemplate sensor
-   (slot zona) 
+   (slot sala) 
    (slot tipo
       (type SYMBOL) 
       (allowed-values temperatura humedad))  ; Tipo de sensor: temperatura o humedad
@@ -50,7 +56,7 @@
       (default 0)))
 
 (deftemplate ventilador
-   (slot zona)
+   (slot sala)
    (slot encendido
       (type SYMBOL) 
       (allowed-values si no)
@@ -63,7 +69,7 @@
    (slot id)
    (slot nombre)
    (slot nivel_acceso) ;0: fría, 1: templada o 2: caliente
-   (slot zona_actual) ;nombre de la zona en la que se encuentra
+   (slot sala_actual) ;nombre de la zona en la que se encuentra
    )
 
 (deftemplate accion_moverse
@@ -72,7 +78,7 @@
 
 (deftemplate rack
    (slot id)
-   (slot zona)
+   (slot sala)
    (slot temperatura (range -20 80))
    (slot humedad (range 0 100))
    (slot temperatura_min  (range -20 80))
