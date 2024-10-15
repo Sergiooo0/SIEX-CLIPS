@@ -42,10 +42,13 @@
    (slot valor)   
 )
 
-(deftemplate accion 
-   (slot tipo
-      (allowed-values encender_aire_acondicionado apagar_aire_acondicionado))
-   (slot zona))
+(deftemplate cambiar_valor
+   (slot sala)
+   (tipo 
+      (type SYMBOL) 
+      (allowed-values temperatura humedad))
+   (valor)
+)
 
 (deftemplate aire_acondicionado
    (slot zona)
