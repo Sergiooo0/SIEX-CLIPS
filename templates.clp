@@ -18,6 +18,11 @@
       (default sensible))
 )
 
+(deftemplate conexion
+   (slot zona1)    ;; the first zone
+   (slot zona2)    ;; the second zone
+)
+
 (deftemplate sala
    (slot nombre)
    (slot zona)
@@ -44,10 +49,10 @@
 
 (deftemplate cambiar_valor
    (slot sala)
-   (tipo 
+   (slot tipo 
       (type SYMBOL) 
       (allowed-values temperatura humedad))
-   (valor)
+   (slot valor)
 )
 
 (deftemplate aire_acondicionado
@@ -78,7 +83,16 @@
 
 (deftemplate accion_moverse
    (slot usuario)
-   (slot zona))
+   (slot zona)
+   (slot sala)
+)
+
+
+(deftemplate accion_moverse_sala
+   (slot usuario)
+   (slot sala)
+)
+
 
 (deftemplate rack
    (slot id)
