@@ -19,6 +19,12 @@
     (usuario (id 111) (nombre "Santiago") (nivel_acceso 0) (sala_actual "Sala D"))
 )
 
+(deffacts sensores
+    (sensor (sala "Sala A") (tipo temperatura) (valor 20) (leido si))
+    (sensor (sala "Sala C") (tipo temperatura) (valor 20) (leido si))
+    (sensor (sala "Sala C") (tipo humedad) (valor 40) (leido si))
+)
+
 (deffacts aire_acondicionados
     (aire_acondicionado (zona "Zona A"))
 )

@@ -44,7 +44,11 @@
    (slot tipo
       (type SYMBOL) 
       (allowed-values temperatura humedad))  ; Tipo de sensor: temperatura o humedad
-   (slot valor)   
+   (slot valor)
+   (slot leido
+      (type SYMBOL) 
+      (allowed-values si no)
+      (default no))
 )
 
 (deftemplate cambiar_valor
@@ -54,6 +58,7 @@
       (allowed-values temperatura humedad))
    (slot valor)
 )
+
 
 (deftemplate aire_acondicionado
    (slot zona)
