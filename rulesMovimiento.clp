@@ -8,8 +8,20 @@
     (printout t "Created reverse connection between " ?z2 " and " ?z1 crlf)
 )
 
+(defrule misma_salas
+    (declare (salience 50))
+    ?accion_moverse_sala <- (accion_moverse_sala (usuario ?nom_user) (sala ?nom_sala))
+    (usuario (id ?id) (nombre ?nom_user) (sala_actual ?nom_sala))
+    =>
+    ;; We eliminate the action because the user is already in the room
+    ;; If we don't do this, the user will try to move to this room
+    ;; when he moves to another room
+    (printout t ?nom_user " de id " ?id " ya está en " ?nom_sala "." crlf)
+    (retract ?accion_moverse_sala)
+)
+
 (defrule moverse_en_zona
-    (accion_moverse_sala (usuario ?nom_user) (sala ?nom_sala))
+    ?accion_moverse_sala <- (accion_moverse_sala (usuario ?nom_user) (sala ?nom_sala))
     ?usuario <- (usuario (id ?id) (nombre ?nom_user) (sala_actual ?sala_actual))
     (test (neq ?nom_sala ?sala_actual)) ; Que no sea la misma sala
     (sala (nombre ?nom_sala) (zona ?zona))
@@ -19,6 +31,7 @@
     (printout t ?nom_user " de id " ?id " se ha movido a " ?nom_sala 
     " desde " ?sala_actual " sin salir de " ?zona "." crlf)
     (modify ?usuario (sala_actual ?nom_sala))
+    (retract ?accion_moverse_sala)
 )
 
 
