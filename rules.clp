@@ -138,7 +138,7 @@
 (defrule detecta_agua
    ?sensor <- (sensor (sala ?nombre) (tipo agua) (valor si) (leido no))
    =>
-   (printout t "Alerta por inundación en: " ?nombre "." crlf)
+   (printout t "Alerta por inundacion en: " ?nombre "." crlf)
    (modify ?sensor (valor no) (leido si)))
 
 (defrule activar_agua
