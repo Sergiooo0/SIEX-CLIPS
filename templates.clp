@@ -4,18 +4,14 @@
    (slot personas_presentes (default 0))
    ;(slot temperatura (range -20 80))
    ;(slot humedad (range 0 100))
-   (slot humo
-      (type SYMBOL) 
-      (allowed-values si no)
-      (default no))
-   (slot agua
-      (type SYMBOL) 
-      (allowed-values si no)
-      (default no))
    (slot contenido
       (type SYMBOL) 
       (allowed-values normal sensible)
       (default sensible))
+   (slot en_evacuacion
+      (type SYMBOL) 
+      (allowed-values no si)
+      (default no))
 )
 
 (deftemplate conexion
@@ -43,8 +39,8 @@
    (slot sala) 
    (slot tipo
       (type SYMBOL) 
-      (allowed-values temperatura humedad))  ; Tipo de sensor: temperatura o humedad
-   (slot valor)
+      (allowed-values temperatura humedad humo agua))
+   (slot valor) ;numerico si es de temperatura o humedad; si o no en caso de que sea de humo o agua
    (slot leido
       (type SYMBOL) 
       (allowed-values si no)

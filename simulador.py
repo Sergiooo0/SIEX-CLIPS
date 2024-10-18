@@ -26,8 +26,7 @@ for fact in environment.facts():
         print(fact)
         print(fact["id"], fact["nombre"], fact["nivel_acceso"])
 
-# Ejecutar las activaciones de las reglas
-environment.run()
+print("----------------SIMULACION----------------")
 
 # Prueba de modificación de temperaturas
 template_cambiar = environment.find_template('cambiar_valor')

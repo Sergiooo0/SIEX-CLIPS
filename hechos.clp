@@ -2,7 +2,7 @@
    (zona (nombre "Zona A") (tipo 1) (personas_presentes 1))
    (zona (nombre "Zona B") (tipo 2) (personas_presentes 0))
    (zona (nombre "Zona C") (tipo 0) (personas_presentes 1))
-   (zona (nombre "Pasillo") (tipo 0) (personas_presentes 0))
+   (zona (nombre "Pasillo") (tipo 0) (personas_presentes 0) (contenido normal))
 )
 
 
@@ -20,9 +20,12 @@
 )
 
 (deffacts sensores
-    (sensor (sala "Sala A") (tipo temperatura) (valor 20) (leido si))
-    (sensor (sala "Sala C") (tipo temperatura) (valor 20) (leido si))
-    (sensor (sala "Sala C") (tipo humedad) (valor 40) (leido si))
+    (sensor (sala "Sala A") (tipo temperatura) (valor 20))
+    (sensor (sala "Sala C") (tipo temperatura) (valor 20))
+    (sensor (sala "Sala C") (tipo humedad) (valor 40))
+    (sensor (sala "Sala B") (tipo agua) (valor si))
+    (sensor (sala "Sala B") (tipo humo) (valor si))
+    (sensor (sala "Sala E") (tipo humo) (valor si))
 )
 
 (deffacts aire_acondicionados

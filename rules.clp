@@ -12,7 +12,7 @@
    ?inicializar <- (inicializar-sensores)
    (not (sensor (leido si)))
    =>
-   (printout t "Ultimo sensor." crlf)
+   (printout t "Todos los sensores preparados para ser leidos." crlf)
    (retract ?inicializar)
 )
 
@@ -134,3 +134,46 @@
    (modify ?ventilador (intensidad (+ ?intensidad 20)))
    (modify ?sensor (leido si))
 )
+
+(defrule detecta_agua
+   ?sensor <- (sensor (sala ?nombre) (tipo agua) (valor si) (leido no))
+   =>
+   (printout t "Alerta por inundación en: " ?nombre "." crlf)
+   (modify ?sensor (valor no) (leido si)))
+
+(defrule activar_agua
+   ?sensor <- (sensor (sala ?nombre) (tipo humo) (valor si) (leido no))
+   (sala (nombre ?nombre) (zona ?nombre_zona))
+   (not (zona (nombre ?nombre_zona) (contenido sensible)))
+   =>
+   (printout t "Alerta por incendio: " ?nombre_zona ". Activando extincion por agua." crlf)
+   (modify ?sensor (valor no) (leido si)))
+
+(defrule activar_evacuacion
+   ?sensor <- (sensor (sala ?nombre) (tipo humo) (valor si) (leido no))
+   (sala (nombre ?nombre) (zona ?nombre_zona))
+   ?zona <- (zona (nombre ?nombre_zona) (contenido sensible) (en_evacuacion no))
+   =>
+   (printout t "Alerta por incendio: " ?nombre_zona ". No se pudo activar extincion por agua, contenido sensible" crlf)
+   (printout t "EVACUEN: " ?nombre_zona "!" crlf)
+   (modify ?sensor (leido si))
+   (modify ?zona (en_evacuacion si)))
+
+(defrule activar_gas
+   ?sensor <- (sensor (sala ?nombre) (tipo humo) (valor si))
+   (sala (nombre ?nombre) (zona ?nombre_zona))
+   ?zona <- (zona (nombre ?nombre_zona) (contenido sensible) (personas_presentes 0) (en_evacuacion si))
+   =>
+   (printout t "Activando extincion por gas en: " ?nombre_zona "." crlf)
+   (modify ?sensor (valor no))
+   (modify ?zona (en_evacuacion no)))
+
+(defrule no_activar_gas
+   ?sensor <- (sensor (sala ?nombre) (tipo humo) (valor si) (leido no))
+   (sala (nombre ?nombre) (zona ?nombre_zona))
+   (zona (nombre ?nombre_zona) (contenido sensible) (personas_presentes ?numero) (en_evacuacion si))
+   (not (test (eq ?numero 0)))
+   =>
+   (printout t "Hay gente en " ?nombre_zona ". Por favor, EVACUEN!" crlf)
+   (modify ?sensor (leido si))
+   )
