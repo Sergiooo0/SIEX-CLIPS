@@ -90,3 +90,22 @@
     (modify ?zonaF (personas_presentes (+ ?personasF 1)))
     (retract ?accion_moverse) 
 )
+
+
+(defrule evacuar_zona
+    ;; Ignores security level
+    (declare (salience 90))
+    ?zonaI <- (zona (nombre ?nom_zonaI) (en_evacuacion si) (personas_presentes ?personasI))
+    ?usuario <- (usuario (id ?id) (nombre ?nom_user) (sala_actual ?nom_salaI))
+    (sala (nombre ?nom_salaI) (zona ?nom_zonaI))
+    (conexion (zona1 ?nom_zonaI) (zona2 ?nom_zonaF))
+    ?zonaF <- (zona (nombre ?nom_zonaF) (personas_presentes ?personasF))
+    (sala (nombre ?nom_salaF) (zona ?nom_zonaF))
+    =>
+    (printout t ?nom_user " de id " ?id " ha salido de " ?nom_salaI
+    " contenida en " ?nom_zonaI " por alerta de evacuación. Se ha movido a"
+    ?nom_salaF "contenida en " ?zonaF "." crlf)
+    (modify ?usuario (sala_actual ?nom_salaF))
+    (modify ?zonaI (personas_presentes (- ?personasI 1)))
+    (modify ?zonaF (personas_presentes (+ ?personasF 1)))
+)
