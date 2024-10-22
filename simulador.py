@@ -7,13 +7,25 @@ environment = clips.Environment()
 # Cargar templates, reglas y hechos iniciales
 environment.load("templates.clp")
 environment.load("hechos.clp")
-environment.load("rules.clp")
+
+listRules = [
+    "rulesAireAcondicionado.clp",
+    "rulesCalefaccion.clp",
+    "rulesEmergencia.clp",
+    "rulesIluminacion.clp",
+    "rulesMovimiento.clp",
+    "rulesRacks.clp",
+    "rulesSensores.clp",
+    "rulesVentilador.clp",
+]
+for rule in listRules:
+    environment.load(rule)
 
 # Cargar hechos iniciales en memoria activa y emparejar reglas
 environment.reset()
 
 # Crear template para moverse
-template_moverse = environment.find_template('accion_moverse')
+template_moverse = environment.find_template("accion_moverse")
 zonas = ["Zona A", "Zona B", "Zona C"]
 
 # Insertar hechos para zonas
@@ -29,17 +41,17 @@ for fact in environment.facts():
 print("----------------SIMULACION----------------")
 
 # Prueba de modificación de temperaturas
-template_cambiar = environment.find_template('cambiar_valor')
+template_cambiar = environment.find_template("cambiar_valor")
 temperatura = 20
 for _ in range(10):
     time.sleep(2)
-    fact = template_cambiar.assert_fact(sala="Sala A",
-                                        tipo=clips.Symbol("temperatura"),
-                                        valor=temperatura)
-    fact = template_cambiar.assert_fact(sala="Sala F",
-                                        tipo=clips.Symbol("temperatura"),
-                                        valor=temperatura)
-    temperatura += 2 
+    fact = template_cambiar.assert_fact(
+        sala="Sala A", tipo=clips.Symbol("temperatura"), valor=temperatura
+    )
+    fact = template_cambiar.assert_fact(
+        sala="Sala F", tipo=clips.Symbol("temperatura"), valor=temperatura
+    )
+    temperatura += 2
     # Antes de ejecutar el ciclo de reglas, inserta el hecho "inicializar-sensores"
     environment.assert_string("(inicializar-sensores)")
     environment.run()

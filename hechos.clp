@@ -6,6 +6,14 @@
    (zona (nombre "Pasillo") (tipo 0) (personas_presentes 0) (contenido normal))
 )
 
+(deffacts conexiones
+    (conexion (zona1 "Pasillo") (zona2 "Zona A"))
+    (conexion (zona1 "Pasillo") (zona2 "Zona B"))
+    (conexion (zona1 "Pasillo") (zona2 "Zona C"))
+    (conexion (zona1 "Pasillo") (zona2 "Zona D"))
+    (conexion (zona1 "Zona A") (zona2 "Zona B"))
+)
+
 
 (deffacts salas
     (sala (nombre "Sala A") (zona "Zona A") (iluminacion encendida))
