@@ -36,6 +36,9 @@ for _ in range(10):
     fact = template_cambiar.assert_fact(sala="Sala A",
                                         tipo=clips.Symbol("temperatura"),
                                         valor=temperatura)
+    fact = template_cambiar.assert_fact(sala="Sala F",
+                                        tipo=clips.Symbol("temperatura"),
+                                        valor=temperatura)
     temperatura += 2 
     # Antes de ejecutar el ciclo de reglas, inserta el hecho "inicializar-sensores"
     environment.assert_string("(inicializar-sensores)")

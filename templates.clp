@@ -33,7 +33,10 @@
    (slot humedad_max (default 30))
 )
 
-;calefaccion_global un hecho directamente.
+(deftemplate calefaccion_global
+   (slot encendida
+      (type SYMBOL)
+      (allowed-values si no)))
 
 (deftemplate sensor
    (slot sala) 
