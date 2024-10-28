@@ -53,7 +53,7 @@
     =>
     (printout t ?nom_user " de id " ?id " ha salido de " ?nom_salaI
     " contenida en " ?nom_zonaI " por alerta de evacuación. Se ha movido a "
-    ?nom_salaF " contenida en " ?zonaF "." crlf)
+    ?nom_salaF " contenida en " ?nom_zonaF "." crlf)
     (modify ?usuario (sala_actual ?nom_salaF))
     (modify ?zonaI (personas_presentes (- ?personasI 1)))
     (modify ?zonaF (personas_presentes (+ ?personasF 1)))

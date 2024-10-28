@@ -54,7 +54,7 @@
    (slot sala)
    (slot tipo 
       (type SYMBOL) 
-      (allowed-values temperatura humedad))
+      (allowed-values temperatura humedad humo agua))
    (slot valor)
 )
 
