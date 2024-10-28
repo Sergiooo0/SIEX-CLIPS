@@ -7,19 +7,7 @@ environment = clips.Environment()
 # Cargar templates, reglas y hechos iniciales
 environment.load("templates.clp")
 environment.load("hechos.clp")
-
-listRules = [
-    "rulesAireAcondicionado.clp",
-    "rulesCalefaccion.clp",
-    "rulesEmergencia.clp",
-    "rulesIluminacion.clp",
-    "rulesMovimiento.clp",
-    "rulesRacks.clp",
-    "rulesSensores.clp",
-    "rulesVentilador.clp",
-]
-for rule in listRules:
-    environment.load(rule)
+environment.batch_star("rules.bat")
 
 # Cargar hechos iniciales en memoria activa y emparejar reglas
 environment.reset()
