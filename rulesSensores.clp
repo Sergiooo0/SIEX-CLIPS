@@ -4,7 +4,7 @@
    ?sensor <- (sensor (sala ?sala) (tipo ?tipo) (leido si))
    =>
    (modify ?sensor (leido no))
-   (printout t "Sensor de tipo " ?tipo " en la " ?sala " inicializado con leido = no." crlf)
+   ;(printout t "Sensor de tipo " ?tipo " en la " ?sala " inicializado con leido = no." crlf)
 )
 
 (defrule fin_inicializar

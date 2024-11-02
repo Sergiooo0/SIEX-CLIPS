@@ -15,17 +15,23 @@
 )
 
 (defrule apagar_aire_acondicionado
-   (sala (nombre ?nombre) (zona ?zona) (temperatura_max ?maxima) (temperatura_min ?minima))
-   ?sensor <- (sensor (sala ?nombre) (tipo temperatura) (valor ?temperatura) (leido no))
    ?aire_acondicionado <- (aire_acondicionado (zona ?zona) (encendido si))
-   (test (>= ?temperatura ?minima))
-   (test (<= ?temperatura ?maxima))
+   (not
+      (and
+         (sala (nombre ?nombre) (zona ?zona) (temperatura_max ?maxima) (temperatura_min ?minima))
+         (sensor (sala ?nombre) (tipo temperatura) (valor ?temperatura))
+         (or
+            (test (> ?temperatura ?maxima))
+            (test (< ?temperatura ?minima))
+         )
+      )
+   )
    =>
-   (printout t ?nombre " con temperatura en rango ideal (" ?temperatura ")." crlf)
+   (printout t "Ninguna sala con temperatura fuera de rango ideal en " ?zona "." crlf)
    (printout t "Se va a apagar el aire acondicionado en " ?zona "." crlf)
-   (modify ?aire_acondicionado (encendido no) (intensidad 0))
-   (modify ?sensor (leido si))
+   (modify ?aire_acondicionado (encendido no) (intensidad 0))  
 )
+
 
 (defrule mas_aire_acondicionado
    (sala (nombre ?nombre) (zona ?zona) (temperatura_max ?maxima) (temperatura_min ?minima))

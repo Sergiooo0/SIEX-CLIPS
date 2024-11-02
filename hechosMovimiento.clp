@@ -9,16 +9,16 @@
 
 
 (deffacts salas
-    (sala (nombre "Sala A") (zona "Zona A"))
-    (sala (nombre "Sala B") (zona "Zona A"))
-    (sala (nombre "Sala C") (zona "Zona B"))
-    (sala (nombre "Sala D") (zona "Zona C"))
-    (sala (nombre "Sala E") (zona "Pasillo1"))
-    (sala (nombre "Sala F") (zona "Pasillo2"))
-    (sala (nombre "Sala G") (zona "Zona A"))
-    (sala (nombre "Sala H") (zona "Zona D"))
-    (sala (nombre "Sala I") (zona "Zona D"))
-    (sala (nombre "Sala J") (zona "Zona B"))
+    (sala (nombre "Sala A1") (zona "Zona A"))
+    (sala (nombre "Sala A2") (zona "Zona A"))
+    (sala (nombre "Sala B1") (zona "Zona B"))
+    (sala (nombre "Sala C1") (zona "Zona C"))
+    (sala (nombre "Sala P1") (zona "Pasillo1"))
+    (sala (nombre "Sala P2") (zona "Pasillo2"))
+    (sala (nombre "Sala A3") (zona "Zona A"))
+    (sala (nombre "Sala D1") (zona "Zona D"))
+    (sala (nombre "Sala D2") (zona "Zona D"))
+    (sala (nombre "Sala B2") (zona "Zona B"))
 )
 
 
@@ -33,24 +33,24 @@
 
 
 (deffacts usuarios
-    (usuario (id 777) (nombre "Sergio") (nivel_acceso 1) (sala_actual "Sala A"))
-    (usuario (id 111) (nombre "Santiago") (nivel_acceso 0) (sala_actual "Sala D"))
-    (usuario (id 222) (nombre "Juan") (nivel_acceso 0) (sala_actual "Sala F"))
-    (usuario (id 333) (nombre "Pedro") (nivel_acceso 2) (sala_actual "Sala G"))
-    (usuario (id 444) (nombre "Luis") (nivel_acceso 1) (sala_actual "Sala E"))
-    (usuario (id 555) (nombre "Carlos") (nivel_acceso 0) (sala_actual "Sala E"))
-    (usuario (id 666) (nombre "Andres") (nivel_acceso 2) (sala_actual "Sala E"))
-    (usuario (id 888) (nombre "Javier") (nivel_acceso 1) (sala_actual "Sala H"))
+    (usuario (id 777) (nombre "Sergio") (nivel_acceso 1) (sala_actual "Sala A1"))
+    (usuario (id 111) (nombre "Santiago") (nivel_acceso 0) (sala_actual "Sala C1"))
+    (usuario (id 222) (nombre "Juan") (nivel_acceso 0) (sala_actual "Sala P2"))
+    (usuario (id 333) (nombre "Pedro") (nivel_acceso 2) (sala_actual "Sala A3"))
+    (usuario (id 444) (nombre "Luis") (nivel_acceso 1) (sala_actual "Sala P1"))
+    (usuario (id 555) (nombre "Carlos") (nivel_acceso 0) (sala_actual "Sala P1"))
+    (usuario (id 666) (nombre "Andres") (nivel_acceso 2) (sala_actual "Sala P1"))
+    (usuario (id 888) (nombre "Javier") (nivel_acceso 1) (sala_actual "Sala D1"))
 )
 
 
 (deffacts acciones
-    (accion_moverse_sala (usuario "Sergio") (sala "Sala B"))
-    (accion_moverse_sala (usuario "Santiago") (sala "Sala C"))
-    (accion_moverse_sala (usuario "Juan") (sala "Sala D"))
-    (accion_moverse_sala (usuario "Pedro") (sala "Sala A"))
-    (accion_moverse_sala (usuario "Luis") (sala "Sala C"))
-    (accion_moverse_sala (usuario "Carlos") (sala "Sala F"))
-    (accion_moverse_sala (usuario "Andres") (sala "Sala D"))
-    (accion_moverse_sala (usuario "Javier") (sala "Sala D"))
+    (accion_moverse_sala (usuario "Sergio") (sala "Sala A2"))
+    (accion_moverse_sala (usuario "Santiago") (sala "Sala B1"))
+    (accion_moverse_sala (usuario "Juan") (sala "Sala C1"))
+    (accion_moverse_sala (usuario "Pedro") (sala "Sala A1"))
+    (accion_moverse_sala (usuario "Luis") (sala "Sala B1"))
+    (accion_moverse_sala (usuario "Carlos") (sala "Sala P2"))
+    (accion_moverse_sala (usuario "Andres") (sala "Sala C1"))
+    (accion_moverse_sala (usuario "Javier") (sala "Sala C1"))
 )

@@ -45,5 +45,5 @@ while True:
 
     # Esperar un rato
     time.sleep(2)
-
+    print()
     print("-----------------------------")
