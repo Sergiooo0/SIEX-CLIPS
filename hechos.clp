@@ -102,3 +102,252 @@
     (sala (nombre "Interfaces Neuronales") (zona "Experimental"))
     (sala (nombre "Realidad Virtual") (zona "Experimental"))
 )
+
+
+(deffacts sensores
+   (sensor (sala "Vestíbulo") (tipo temperatura) (valor 20))
+   (sensor (sala "Vestíbulo") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Pasillo") (tipo temperatura) (valor 20))
+   (sensor (sala "Pasillo") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Baño minusválidos") (tipo temperatura) (valor 20))
+   (sensor (sala "Baño minusválidos") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Baño mujeres") (tipo temperatura) (valor 20))
+   (sensor (sala "Baño mujeres") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Baño hombres") (tipo temperatura) (valor 20))
+   (sensor (sala "Baño hombres") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Baño mujeres") (tipo temperatura) (valor 20))
+   (sensor (sala "Baño mujeres") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Baño hombres") (tipo temperatura) (valor 20))
+   (sensor (sala "Baño hombres") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Rellano 0") (tipo temperatura) (valor 20))
+   (sensor (sala "Rellano 0") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Rellano 1") (tipo temperatura) (valor 20))
+   (sensor (sala "Rellano 1") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Rellano 2") (tipo temperatura) (valor 20))
+   (sensor (sala "Rellano 2") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Rellano -1") (tipo temperatura) (valor 20))
+   (sensor (sala "Rellano -1") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Sala de reuniones") (tipo temperatura) (valor 20))
+   (sensor (sala "Sala de reuniones") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Sala de conferencias") (tipo temperatura) (valor 20))
+   (sensor (sala "Sala de conferencias") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Museo") (tipo temperatura) (valor 20))
+   (sensor (sala "Museo") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Cocina") (tipo temperatura) (valor 20))
+   (sensor (sala "Cocina") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Billar") (tipo temperatura) (valor 20))
+   (sensor (sala "Billar") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Dance Dance Revolution") (tipo temperatura) (valor 20))
+   (sensor (sala "Dance Dance Revolution") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Despacho del Director") (tipo temperatura) (valor 20))
+   (sensor (sala "Despacho del Director") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Despachos 1") (tipo temperatura) (valor 20))
+   (sensor (sala "Despachos 1") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Despachos 2") (tipo temperatura) (valor 20))
+   (sensor (sala "Despachos 2") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Armario de limpieza") (tipo temperatura) (valor 20))
+   (sensor (sala "Armario de limpieza") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Router") (tipo temperatura) (valor 20))
+   (sensor (sala "Router") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Switch") (tipo temperatura) (valor 20))
+   (sensor (sala "Switch") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Firewall") (tipo temperatura) (valor 20))
+   (sensor (sala "Firewall") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Generador geotérmico") (tipo temperatura) (valor 20))
+   (sensor (sala "Generador geotérmico") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Generador de reserva") (tipo temperatura) (valor 20))
+   (sensor (sala "Generador de reserva") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Reactor Nuclear") (tipo temperatura) (valor 20))
+   (sensor (sala "Reactor Nuclear") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Cuarto de climatización") (tipo temperatura) (valor 20))
+   (sensor (sala "Cuarto de climatización") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Fila 1") (tipo temperatura) (valor 20))
+   (sensor (sala "Fila 1") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Fila 2") (tipo temperatura) (valor 20))
+   (sensor (sala "Fila 2") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Sala de control") (tipo temperatura) (valor 20))
+   (sensor (sala "Sala de control") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Sistema de extinción por agua") (tipo temperatura) (valor 20))
+   (sensor (sala "Sistema de extinción por agua") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Sistema de extinción por gas") (tipo temperatura) (valor 20))
+   (sensor (sala "Sistema de extinción por gas") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Cinta magnética") (tipo temperatura) (valor 20))
+   (sensor (sala "Cinta magnética") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Disco duro") (tipo temperatura) (valor 20))
+   (sensor (sala "Disco duro") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Ordenador cuántico") (tipo temperatura) (valor 20))
+   (sensor (sala "Ordenador cuántico") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Interfaces Neuronales") (tipo temperatura) (valor 20))
+   (sensor (sala "Interfaces Neuronales") (tipo humedad) (valor 20))
+   
+   (sensor (sala "Realidad Virtual") (tipo temperatura) (valor 20))
+   (sensor (sala "Realidad Virtual") (tipo humedad) (valor 20))
+)
+
+(deffacts sensores_zona
+   (sensorZ (zona "Pasillo 0") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Pasillo 0") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Baños Planta Baja") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Baños Planta Baja") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Baños Primer Piso") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Baños Primer Piso") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Baños Segundo Piso") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Baños Segundo Piso") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Escalera Principal") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Escalera Principal") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Pasillo 1") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Pasillo 1") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Pasillo 2") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Pasillo 2") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Escalera Secundaria") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Escalera Secundaria") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Pasillo -1") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Pasillo -1") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Zona Pública") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Zona Pública") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Zona Recreativa") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Zona Recreativa") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Despachos") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Despachos") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Limpieza") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Limpieza") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Redes") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Redes") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Potencia") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Potencia") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Servidores 1") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Servidores 1") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Servidores 2") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Servidores 2") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Alerta") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Alerta") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Almacenamiento") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Almacenamiento") (tipo agua) (valor no) (leido no))
+
+   (sensorZ (zona "Experimental") (tipo humo) (valor no) (leido no))
+   (sensorZ (zona "Experimental") (tipo agua) (valor no) (leido no))
+)
+
+
+
+
+(deffacts ventiladores
+   (ventilador (sala "Vestíbulo"))
+   (ventilador (sala "Pasillo"))
+   (ventilador (sala "Baño minusválidos"))
+   (ventilador (sala "Baño mujeres"))
+   (ventilador (sala "Baño hombres"))
+   (ventilador (sala "Sala de reuniones"))
+   (ventilador (sala "Cocina"))
+   (ventilador (sala "Despacho del Director"))
+   (ventilador (sala "Sala de conferencias"))
+   (ventilador (sala "Museo"))
+   (ventilador (sala "Billar"))
+   (ventilador (sala "Dance Dance Revolution"))
+   (ventilador (sala "Despachos 1"))
+   (ventilador (sala "Despachos 2"))
+   (ventilador (sala "Armario de limpieza"))
+   (ventilador (sala "Router"))
+   (ventilador (sala "Switch"))
+   (ventilador (sala "Firewall"))
+   (ventilador (sala "Generador geotérmico"))
+   (ventilador (sala "Generador de reserva"))
+   (ventilador (sala "Reactor Nuclear"))
+   (ventilador (sala "Cuarto de climatización"))
+   (ventilador (sala "Fila 1"))
+   (ventilador (sala "Fila 2"))
+   (ventilador (sala "Sala de control"))
+   (ventilador (sala "Sistema de extinción por agua"))
+   (ventilador (sala "Sistema de extinción por gas"))
+   (ventilador (sala "Cinta magnética"))
+   (ventilador (sala "Disco duro"))
+   (ventilador (sala "Ordenador cuántico"))
+   (ventilador (sala "Interfaces Neuronales"))
+   (ventilador (sala "Realidad Virtual"))
+)
+
+
+(deffacts aire_acondicionados
+   (aire_acondicionado (zona "Zona Pública"))
+   (aire_acondicionado (zona "Zona Recreativa"))
+   (aire_acondicionado (zona "Despachos"))
+   (aire_acondicionado (zona "Redes"))
+   (aire_acondicionado (zona "Potencia"))
+   (aire_acondicionado (zona "Servidores 1"))
+   (aire_acondicionado (zona "Servidores 2"))
+   (aire_acondicionado (zona "Alerta"))
+   (aire_acondicionado (zona "Almacenamiento"))
+   (aire_acondicionado (zona "Experimental"))
+)
+
+
+(deffacts racks
+   (rack (id 1) (sala "Router") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 220))
+   (rack (id 2) (sala "Switch") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 230))
+   (rack (id 3) (sala "Firewall") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 215))
+   (rack (id 4) (sala "Fila 1") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 225))
+   (rack (id 5) (sala "Fila 1") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 210))
+   (rack (id 6) (sala "Fila 2") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 220))
+   (rack (id 7) (sala "Fila 2") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 230))
+   (rack (id 8) (sala "Disco duro") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 212))
+   (rack (id 9) (sala "Disco duro") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 218))
+)
+
+
+(deffacts calefaccion
+   (calefaccion_global (encendida no))
+)
