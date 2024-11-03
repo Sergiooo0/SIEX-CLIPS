@@ -16,25 +16,24 @@ environment.load("rulesSensores.clp")
 environment.reset()
 environment.run()
 
-# Obtenemos las salas
-templateSala = environment.find_template("sala")
-salas = []
+# Obtenemos las zonas
+templateZona = environment.find_template("zona")
+zonas = []
 for fact in environment.facts():
-    if fact.template.name == "sala":
-        salas.append(fact)
+    if fact.template.name == "zona":
+        zonas.append(fact)
 
-
-template_cambiar = environment.find_template("cambiar_valor")
+template_cambiar = environment.find_template("cambiar_valorZ")
 
 while True:
-    # Elegir una sala al azar
-    room = random.choice(salas)
+    # Elegir una zona al azar
+    zona = random.choice(zonas)
 
     problema = random.choice(["humo", "agua"])
 
     fact = template_cambiar.assert_fact(
-        sala=room["nombre"],
-        tipo=clips.Symbol(random.choice(["humo", "agua"])),
+        zona=zona["nombre"],
+        tipo=clips.Symbol(problema),
         valor=clips.Symbol("si"),
     )
 

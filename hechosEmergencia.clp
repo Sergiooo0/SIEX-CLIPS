@@ -26,18 +26,3 @@
 (deffacts usuarios
     (usuario (id 1891) (nombre "Shi Yousan") (nivel_acceso 0) (sala_actual "Sala B1"))
 )
-
-(deffacts sensores
-    (sensor (sala "Sala A1") (tipo agua) (valor no))
-    (sensor (sala "Sala A1") (tipo humo) (valor no))
-    (sensor (sala "Sala A2") (tipo agua) (valor no))
-    (sensor (sala "Sala A2") (tipo humo) (valor no))
-    (sensor (sala "Sala B1") (tipo agua) (valor no))
-    (sensor (sala "Sala B1") (tipo humo) (valor no))
-    (sensor (sala "Sala B2") (tipo agua) (valor no))
-    (sensor (sala "Sala B2") (tipo humo) (valor no))
-    (sensor (sala "Sala C1") (tipo agua) (valor no))
-    (sensor (sala "Sala C1") (tipo humo) (valor no))
-    (sensor (sala "Sala C2") (tipo agua) (valor no))
-    (sensor (sala "Sala C2") (tipo humo) (valor no))
-)

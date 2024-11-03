@@ -1,8 +1,8 @@
 (defrule encender_ventilador
-   (sala (nombre ?nombre) (humedad_max ?maxima))
+   (sala (nombre ?nombre) (humedad_max ?maxima) (zona ?nombre_zona))
    ?sensor <- (sensor (sala ?nombre) (tipo humedad) (valor ?humedad) (leido no))
    ?ventilador <- (ventilador (sala ?nombre) (encendido no))
-   (not (sensor (sala ?nombre) (tipo humo) (valor si))) 
+   (not (sensorZ (zona ?nombre_zona) (tipo humo) (valor si)))
    (test (> ?humedad ?maxima))
    =>
    (printout t ?nombre " con humedad fuera de rango ideal (" ?humedad ")." crlf)

@@ -1,43 +1,58 @@
+(defrule crearSensorHumo
+   (declare (salience 100))
+   (zona (nombre ?nombre_zona))
+   (not (sensorZ (zona ?nombre_zona) (tipo humo)))
+   =>
+   (assert (sensorZ (zona ?nombre_zona) (tipo humo)))
+   (printout t "Created the smoke detector for " ?nombre_zona "." crlf)
+)
+
+(defrule crearSensorAgua
+   (declare (salience 100))
+   (zona (nombre ?nombre_zona))
+   (not (sensorZ (zona ?nombre_zona) (tipo agua)))
+   =>
+   (assert (sensorZ (zona ?nombre_zona) (tipo agua)))
+   (printout t "Created the inundation detector for " ?nombre_zona "." crlf)
+)
+
 (defrule detecta_agua
-   ?sensor <- (sensor (sala ?nombre) (tipo agua) (valor si) (leido no))
+   ?sensor <- (sensorZ (zona ?nombre) (tipo agua) (valor si) (leido no))
    =>
    (printout t "Alerta por inundacion en: " ?nombre "." crlf)
-   (modify ?sensor (valor no) (leido si)))
+   (modify ?sensor (valor no) (leido si))
+)
 
 (defrule activar_agua
-   ?sensor <- (sensor (sala ?nombre) (tipo humo) (valor si) (leido no))
-   (sala (nombre ?nombre) (zona ?nombre_zona))
-   (not (zona (nombre ?nombre_zona) (contenido sensible)))
+   ?sensor <- (sensorZ (zona ?nombre) (tipo humo) (valor si) (leido no))
+   (not (zona (nombre ?nombre) (contenido sensible)))
    =>
-   (printout t "Alerta por incendio: " ?nombre_zona ". Activando extincion por agua." crlf)
+   (printout t "Alerta por incendio: " ?nombre ". Activando extincion por agua." crlf)
    (modify ?sensor (valor no) (leido si)))
 
 (defrule activar_evacuacion
-   ?sensor <- (sensor (sala ?nombre) (tipo humo) (valor si) (leido no))
-   (sala (nombre ?nombre) (zona ?nombre_zona))
-   ?zona <- (zona (nombre ?nombre_zona) (contenido sensible) (en_evacuacion no))
+   ?sensor <- (sensorZ (zona ?nombre) (tipo humo) (valor si) (leido no))
+   ?zona <- (zona (nombre ?nombre) (contenido sensible) (en_evacuacion no))
    =>
-   (printout t "Alerta por incendio: " ?nombre_zona ". No se pudo activar extincion por agua, contenido sensible" crlf)
-   (printout t "EVACUEN: " ?nombre_zona "!" crlf)
+   (printout t "Alerta por incendio: " ?nombre ". No se pudo activar extincion por agua, contenido sensible" crlf)
+   (printout t "EVACUEN: " ?nombre "!" crlf)
    (modify ?sensor (leido si))
    (modify ?zona (en_evacuacion si)))
 
 (defrule activar_gas
-   ?sensor <- (sensor (sala ?nombre) (tipo humo) (valor si))
-   (sala (nombre ?nombre) (zona ?nombre_zona))
-   ?zona <- (zona (nombre ?nombre_zona) (contenido sensible) (personas_presentes 0) (en_evacuacion si))
+   ?sensor <- (sensorZ (zona ?nombre) (tipo humo) (valor si))
+   ?zona <- (zona (nombre ?nombre) (contenido sensible) (personas_presentes 0) (en_evacuacion si))
    =>
-   (printout t "Activando extincion por gas en: " ?nombre_zona "." crlf)
+   (printout t "Activando extincion por gas en: " ?nombre "." crlf)
    (modify ?sensor (valor no))
    (modify ?zona (en_evacuacion no)))
 
 (defrule no_activar_gas
-   ?sensor <- (sensor (sala ?nombre) (tipo humo) (valor si) (leido no))
-   (sala (nombre ?nombre) (zona ?nombre_zona))
-   (zona (nombre ?nombre_zona) (contenido sensible) (personas_presentes ?numero) (en_evacuacion si))
+   ?sensor <- (sensorZ (zona ?nombre) (tipo humo) (valor si) (leido no))
+   (zona (nombre ?nombre) (contenido sensible) (personas_presentes ?numero) (en_evacuacion si))
    (not (test (eq ?numero 0)))
    =>
-   (printout t "Hay gente en " ?nombre_zona ". Por favor, EVACUEN!" crlf)
+   (printout t "Hay " ?numero " personas en " ?nombre ". Por favor, EVACUEN!" crlf)
    (modify ?sensor (leido si))
    )
 
@@ -60,21 +75,20 @@
 )
 
 (defrule apagar_ventilador_por_incendio
-   (sala (nombre ?nombre))
-   ?sensor <- (sensor (sala ?nombre) (tipo humo) (valor si))
-   ?ventilador <- (ventilador (sala ?nombre) (encendido si))
+   ?sensor <- (sensorZ (zona ?nombre) (tipo humo) (valor si))
+   (sala (nombre ?nombre_sala) (zona ?nombre))
+   ?ventilador <- (ventilador (sala ?nombre_sala) (encendido si))
    =>
    (printout t "Incendio en " ?nombre "." crlf)
-   (printout t "Se va a apagar el ventilador en " ?nombre "." crlf)
+   (printout t "Se va a apagar el ventilador en " ?nombre_sala "." crlf)
    (modify ?ventilador (encendido no) (intensidad 0))
 )
 
 (defrule apagar_aire_acondicionado_por_incendio
-   (sala (nombre ?nombre) (zona ?zona))
-   ?sensor <- (sensor (sala ?nombre) (tipo humo) (valor si))
-   ?aire_acondicionado <- (aire_acondicionado (zona ?zona) (encendido si))
+   ?sensor <- (sensorZ (zona ?nombre) (tipo humo) (valor si))
+   ?aire_acondicionado <- (aire_acondicionado (zona ?nombre) (encendido si))
    =>
    (printout t "Incendio en " ?nombre "." crlf)
-   (printout t "Se va a apagar el aire acondicionado en " ?zona "." crlf)
+   (printout t "Se va a apagar el aire acondicionado en " ?nombre "." crlf)
    (modify ?aire_acondicionado (encendido no) (intensidad 0))
 )

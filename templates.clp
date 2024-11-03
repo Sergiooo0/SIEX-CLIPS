@@ -42,8 +42,24 @@
    (slot sala) 
    (slot tipo
       (type SYMBOL) 
-      (allowed-values temperatura humedad humo agua))
-   (slot valor) ;numerico si es de temperatura o humedad; si o no en caso de que sea de humo o agua
+      (allowed-values temperatura humedad))
+   (slot valor
+      (type INTEGER))
+   (slot leido
+      (type SYMBOL) 
+      (allowed-values si no)
+      (default no))
+)
+
+(deftemplate sensorZ
+   (slot zona)
+   (slot tipo
+      (type SYMBOL) 
+      (allowed-values humo agua))
+   (slot valor
+      (type SYMBOL) 
+      (allowed-values si no)
+      (default no))
    (slot leido
       (type SYMBOL) 
       (allowed-values si no)
@@ -54,10 +70,20 @@
    (slot sala)
    (slot tipo 
       (type SYMBOL) 
-      (allowed-values temperatura humedad humo agua))
+      (allowed-values temperatura humedad))
    (slot valor)
 )
 
+(deftemplate cambiar_valorZ
+   (slot zona)
+   (slot tipo 
+      (type SYMBOL) 
+      (allowed-values humo agua))
+   (slot valor
+      (type SYMBOL) 
+      (allowed-values si no)
+   )
+)
 
 (deftemplate aire_acondicionado
    (slot zona)

@@ -31,33 +31,23 @@
 (deffacts sensores
     (sensor (sala "Sala A1") (tipo temperatura) (valor 20))
     (sensor (sala "Sala A1") (tipo humedad) (valor 20))
-    (sensor (sala "Sala A1") (tipo agua) (valor no))
-    (sensor (sala "Sala A1") (tipo humo) (valor no))
     
     (sensor (sala "Sala A2") (tipo temperatura) (valor 20))
     (sensor (sala "Sala A2") (tipo humedad) (valor 20))
-    (sensor (sala "Sala A2") (tipo agua) (valor no))
-    (sensor (sala "Sala A2") (tipo humo) (valor no))
     
     (sensor (sala "Sala B1") (tipo temperatura) (valor 0))  ;activará una regla
     (sensor (sala "Sala B1") (tipo humedad) (valor 40))     ;activará una regla
-    (sensor (sala "Sala B1") (tipo agua) (valor no))
-    (sensor (sala "Sala B1") (tipo humo) (valor no))
     
     (sensor (sala "Sala C1") (tipo temperatura) (valor 20))
     (sensor (sala "Sala C1") (tipo humedad) (valor 20))
-    (sensor (sala "Sala C1") (tipo agua) (valor no))
-    (sensor (sala "Sala C1") (tipo humo) (valor si))    ;activará una regla
+    (sensorZ (zona "Zona C") (tipo humo) (valor si))    ;activará una regla
     
     (sensor (sala "Sala D1") (tipo temperatura) (valor 20))
     (sensor (sala "Sala D1") (tipo humedad) (valor 20))
-    (sensor (sala "Sala D1") (tipo agua) (valor si))      ;activará una regla
-    (sensor (sala "Sala D1") (tipo humo) (valor no))
+    (sensorZ (zona "Zona D") (tipo agua) (valor si))      ;activará una regla
     
     (sensor (sala "Sala P1") (tipo temperatura) (valor 20))
     (sensor (sala "Sala P1") (tipo humedad) (valor 20))
-    (sensor (sala "Sala P1") (tipo agua) (valor no))
-    (sensor (sala "Sala P1") (tipo humo) (valor no))
 )
 
 (deffacts aire_acondicionados
