@@ -1,7 +1,7 @@
 (deffacts zonas
     (zona (nombre "Zona A") (tipo 1) (personas_presentes 0))
     (zona (nombre "Zona B") (tipo 0) (personas_presentes 1))
-    (zona (nombre "Zona C") (tipo 1) (personas_presentes 0))
+    (zona (nombre "Zona C") (tipo 2) (personas_presentes 0))
 )
 
 

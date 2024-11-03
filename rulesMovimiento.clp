@@ -43,7 +43,7 @@
     (test (neq ?zona ?zona2))
     =>
     (printout t ?nom_user " de id " ?id " se quiere mover a " ?nom_sala 
-     " desde " ?sala_actual "." crlf)
+    " que está en " ?zona " desde " ?sala_actual " que está en " ?zona2 "." crlf)
     (retract ?accion_moverse_sala)
     (assert (accion_moverse (usuario ?nom_user) (zona ?zona) (sala ?nom_sala)))
 )
