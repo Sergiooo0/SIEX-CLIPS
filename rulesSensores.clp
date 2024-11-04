@@ -30,7 +30,7 @@
    ?modificacion <- (cambiar_valor (sala ?sala) (tipo ?tipo) (valor ?valor))
    ?sensor <- (sensor (sala ?sala) (tipo ?tipo))
    =>
-   (printout t "El sensor de " ?tipo " en " ?sala " es de " ?valor "." crlf)
+   (printout t "El sensor de " ?tipo " en " ?sala " tiene un nuevo valor de: " ?valor "." crlf)
    (modify ?sensor (valor ?valor))
    (retract ?modificacion)
 )
@@ -39,7 +39,7 @@
    ?modificacion <- (cambiar_valorZ (zona ?zona) (tipo ?tipo) (valor ?valor))
    ?sensor <- (sensorZ (zona ?zona) (tipo ?tipo))
    =>
-   (printout t "El sensor de " ?tipo " en " ?zona " es de " ?valor "." crlf)
+   (printout t "El sensor de " ?tipo " en " ?zona " tiene un nuevo valor de: " ?valor "." crlf)
    (modify ?sensor (valor ?valor))
    (retract ?modificacion)
 )

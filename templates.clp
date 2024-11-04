@@ -85,6 +85,11 @@
    )
 )
 
+(deftemplate cambiar_valor_voltaje
+   (slot id)
+   (slot valor)
+)
+
 (deftemplate aire_acondicionado
    (slot zona)
    (slot encendido

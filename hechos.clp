@@ -103,6 +103,16 @@
     (sala (nombre "Realidad Virtual") (zona "Experimental"))
 )
 
+(deffacts usuarios
+    (usuario (id 777) (nombre "Sergio") (nivel_acceso 1) (sala_actual "Generador geotérmico"))
+    (usuario (id 111) (nombre "Santiago") (nivel_acceso 0) (sala_actual "Ordenador cuántico"))
+    (usuario (id 222) (nombre "Juan") (nivel_acceso 0) (sala_actual "Pasillo"))
+    (usuario (id 333) (nombre "Pedro") (nivel_acceso 2) (sala_actual "Despachos 2"))
+    (usuario (id 444) (nombre "Luis") (nivel_acceso 1) (sala_actual "Pasillo"))
+    (usuario (id 555) (nombre "Carlos") (nivel_acceso 0) (sala_actual "Sala de conferencias"))
+    (usuario (id 666) (nombre "Andres") (nivel_acceso 2) (sala_actual "Sala de conferencias"))
+    (usuario (id 888) (nombre "Javier") (nivel_acceso 1) (sala_actual "Pasillo"))
+)
 
 (deffacts sensores
    (sensor (sala "Vestíbulo") (tipo temperatura) (valor 20))
