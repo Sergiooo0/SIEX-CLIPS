@@ -2,7 +2,7 @@
    ?modificacion <- (cambiar_valor_voltaje (id ?id) (valor ?nuevo_valor))
    ?rack <- (rack (id ?id) (sala ?nombre_sala))
    =>
-   (printout t "rack de id" ?id " en " ?nombre_sala " con nuevo voltaje de " ?nuevo_valor "." crlf)
+   (printout t "Rack de id " ?id " en " ?nombre_sala " con nuevo voltaje de " ?nuevo_valor "." crlf)
    (modify ?rack (voltaje ?nuevo_valor))
    (retract ?modificacion)
 )
@@ -13,7 +13,7 @@
       (test (> ?voltaje 230))
    )
    =>
-   (printout t "rack de id " ?id " en " ?nombre_sala " con voltaje fuera de rango (" ?voltaje ")." crlf)
+   (printout t "Rack de id " ?id " en " ?nombre_sala " con voltaje fuera de rango (" ?voltaje ")." crlf)
    (modify ?rack (alerta_voltaje si))
 )
 
@@ -22,6 +22,6 @@
    (test (>= ?voltaje 210))
    (test (<= ?voltaje 230))
    =>
-   (printout t "rack de id " ?id " en " ?nombre_sala " con voltaje dentro de rango (" ?voltaje ")." crlf)
+   (printout t "Rack de id " ?id " en " ?nombre_sala " con voltaje dentro de rango (" ?voltaje ")." crlf)
    (modify ?rack (alerta_voltaje no))
 )

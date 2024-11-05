@@ -57,7 +57,7 @@
     (not (conexion (zona1 ?zona_actual) (zona2 ?nom_zona)))
     =>
     (printout t ?nom_user " de id " ?id " no ha podido acceder a " ?nom_zona 
-        " porque no hay conexión desde " ?zona_actual "." crlf)
+        " porque no hay conexion desde " ?zona_actual "." crlf)
     (retract ?accion_moverse)
 )
 
