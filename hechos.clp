@@ -84,17 +84,17 @@
     (sala (nombre "Generador de reserva") (zona "Potencia"))
     (sala (nombre "Reactor Nuclear") (zona "Potencia"))
     (sala (nombre "Cuarto de climatización") (zona "Zona de Servidores 1"))
-    (sala (nombre "Fila 1") (zona "Zona de Servidores 1"))
-    (sala (nombre "Fila 2") (zona "Zona de Servidores 1"))
+    (sala (nombre "Fila 1") (zona "Zona de Servidores 1") (temperatura_min 27) (temperatura_max 29) (humedad_min 40) (humedad_max 50))
+    (sala (nombre "Fila 2") (zona "Zona de Servidores 1") (temperatura_min 27) (temperatura_max 29) (humedad_min 40) (humedad_max 50))
     (sala (nombre "Cuarto de climatización") (zona "Servidores 2"))
-    (sala (nombre "Fila 2.1") (zona "Servidores 2"))
-    (sala (nombre "Fila 2.2") (zona "Servidores 2"))
+    (sala (nombre "Fila 2.1") (zona "Servidores 2") (temperatura_min 27) (temperatura_max 29) (humedad_min 40) (humedad_max 50))
+    (sala (nombre "Fila 2.2") (zona "Servidores 2") (temperatura_min 27) (temperatura_max 29) (humedad_min 40) (humedad_max 50))
     (sala (nombre "Sala de control") (zona "Alerta"))
     (sala (nombre "Sistema de extinción por agua") (zona "Alerta"))
     (sala (nombre "Sistema de extinción por gas") (zona "Alerta"))
     (sala (nombre "Cinta magnética") (zona "Almacenamiento"))
     (sala (nombre "Disco duro") (zona "Almacenamiento"))
-    (sala (nombre "Ordenador cuántico") (zona "Experimental"))
+    (sala (nombre "Ordenador cuántico") (zona "Experimental") (temperatura_min -20) (temperatura_max -10))
     (sala (nombre "Interfaces Neuronales") (zona "Experimental"))
     (sala (nombre "Realidad Virtual") (zona "Experimental"))
 )
@@ -112,64 +112,41 @@
 
 (deffacts sensores
    (sensor (sala "Vestíbulo") (tipo temperatura) (valor 20))
-   (sensor (sala "Vestíbulo") (tipo humedad) (valor 20))
-   
-   (sensor (sala "Pasillo") (tipo temperatura) (valor 20))
-   (sensor (sala "Pasillo") (tipo humedad) (valor 20))
    
    (sensor (sala "Baño minusválidos") (tipo temperatura) (valor 20))
-   (sensor (sala "Baño minusválidos") (tipo humedad) (valor 20))
    
    (sensor (sala "Baño mujeres 0") (tipo temperatura) (valor 20))
-   (sensor (sala "Baño mujeres 0") (tipo humedad) (valor 20))
    
    (sensor (sala "Baño hombres 0") (tipo temperatura) (valor 20))
-   (sensor (sala "Baño hombres 0") (tipo humedad) (valor 20))
    
    (sensor (sala "Baño mujeres 1") (tipo temperatura) (valor 20))
-   (sensor (sala "Baño mujeres 1") (tipo humedad) (valor 20))
    
    (sensor (sala "Baño hombres 1") (tipo temperatura) (valor 20))
-   (sensor (sala "Baño hombres 1") (tipo humedad) (valor 20))
    
    (sensor (sala "Rellano 0") (tipo temperatura) (valor 20))
-   (sensor (sala "Rellano 0") (tipo humedad) (valor 20))
    
    (sensor (sala "Rellano 1") (tipo temperatura) (valor 20))
-   (sensor (sala "Rellano 1") (tipo humedad) (valor 20))
    
    (sensor (sala "Rellano 2") (tipo temperatura) (valor 20))
-   (sensor (sala "Rellano 2") (tipo humedad) (valor 20))
    
    (sensor (sala "Sala de reuniones") (tipo temperatura) (valor 20))
-   (sensor (sala "Sala de reuniones") (tipo humedad) (valor 20))
    
    (sensor (sala "Sala de conferencias") (tipo temperatura) (valor 20))
-   (sensor (sala "Sala de conferencias") (tipo humedad) (valor 20))
    
    (sensor (sala "Museo") (tipo temperatura) (valor 20))
    (sensor (sala "Museo") (tipo humedad) (valor 20))
    
    (sensor (sala "Cocina") (tipo temperatura) (valor 20))
-   (sensor (sala "Cocina") (tipo humedad) (valor 20))
    
    (sensor (sala "Billar") (tipo temperatura) (valor 20))
-   (sensor (sala "Billar") (tipo humedad) (valor 20))
    
    (sensor (sala "Dance Dance Revolution") (tipo temperatura) (valor 20))
-   (sensor (sala "Dance Dance Revolution") (tipo humedad) (valor 20))
    
    (sensor (sala "Despacho del Director") (tipo temperatura) (valor 20))
-   (sensor (sala "Despacho del Director") (tipo humedad) (valor 20))
    
    (sensor (sala "Despachos 1") (tipo temperatura) (valor 20))
-   (sensor (sala "Despachos 1") (tipo humedad) (valor 20))
-   
-   (sensor (sala "Despachos 2") (tipo temperatura) (valor 20))
-   (sensor (sala "Despachos 2") (tipo humedad) (valor 20))
-   
+      
    (sensor (sala "Armario de limpieza") (tipo temperatura) (valor 20))
-   (sensor (sala "Armario de limpieza") (tipo humedad) (valor 20))
    
    (sensor (sala "Router") (tipo temperatura) (valor 20))
    (sensor (sala "Router") (tipo humedad) (valor 20))
@@ -225,7 +202,6 @@
 
 (deffacts ventiladores
    (ventilador (sala "Vestíbulo"))
-   (ventilador (sala "Pasillo 0"))
    (ventilador (sala "Sala de reuniones"))
    (ventilador (sala "Cocina"))
    (ventilador (sala "Despacho del Director"))
@@ -233,8 +209,6 @@
    (ventilador (sala "Museo"))
    (ventilador (sala "Billar"))
    (ventilador (sala "Dance Dance Revolution"))
-   (ventilador (sala "Despachos 1"))
-   (ventilador (sala "Despachos 2"))
    (ventilador (sala "Armario de limpieza"))
    (ventilador (sala "Router"))
    (ventilador (sala "Switch"))

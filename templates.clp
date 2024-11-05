@@ -29,8 +29,8 @@
    )
    (slot temperatura_min (default 10))
    (slot temperatura_max (default 25))
-   (slot humedad_min (default 0))
-   (slot humedad_max (default 30))
+   (slot humedad_min (default 20))
+   (slot humedad_max (default 80))
 )
 
 (deftemplate calefaccion_global
