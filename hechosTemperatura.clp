@@ -20,7 +20,7 @@
     (sensor (sala "Sala A1") (tipo humedad) (valor 20))
     
     (sensor (sala "Sala A2") (tipo temperatura) (valor 20))
-    (sensor (sala "Sala A2") (tipo humedad) (valor 20))
+    (sensor (sala "Sala A2") (tipo humedad) (valor 50))
     
     (sensor (sala "Sala B1") (tipo temperatura) (valor 0))  ;activará una regla
     (sensor (sala "Sala B1") (tipo humedad) (valor 40))     ;activará una regla
