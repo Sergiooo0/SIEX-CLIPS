@@ -13,7 +13,7 @@
       (test (> ?voltaje 230))
    )
    =>
-   (printout t "Rack de id " ?id " en " ?nombre_sala " con voltaje fuera de rango (" ?voltaje ")." crlf)
+   (printout t "Rack de id " ?id " en " ?nombre_sala " con voltaje fuera de rango (" ?voltaje "). Activando alerta." crlf)
    (modify ?rack (alerta_voltaje si))
 )
 
@@ -22,6 +22,6 @@
    (test (>= ?voltaje 210))
    (test (<= ?voltaje 230))
    =>
-   (printout t "Rack de id " ?id " en " ?nombre_sala " con voltaje dentro de rango (" ?voltaje ")." crlf)
+   (printout t "Rack de id " ?id " en " ?nombre_sala " con voltaje dentro de rango (" ?voltaje "). Desactivando alerta." crlf)
    (modify ?rack (alerta_voltaje no))
 )

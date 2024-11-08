@@ -41,7 +41,7 @@ for _ in range(10):
             )
 
     # Emergency
-    if random.random() < 0.01:
+    if random.random() < 0.1:
         fact = template_cambiar_sensor_emergencia.assert_fact(
             zona=random.choice(zonas),
             tipo=random.choice(emergencias),
@@ -59,7 +59,7 @@ for _ in range(10):
 
     # Temperature and Humidity
     for s in sensors:
-        if random.random() < 0.25:
+        if random.random() < 0.10:
             para = s["tipo"]
             value = s["valor"]
             if para == clips.Symbol("temperatura"):
