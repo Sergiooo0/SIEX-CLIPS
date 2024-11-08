@@ -87,10 +87,10 @@
     (sala (nombre "Generador geotérmico") (zona "Potencia"))
     (sala (nombre "Generador de reserva") (zona "Potencia"))
     (sala (nombre "Reactor Nuclear") (zona "Potencia"))
-    (sala (nombre "Cuarto de climatización") (zona "Zona de Servidores 1"))
+    (sala (nombre "Cuarto de climatización 1") (zona "Zona de Servidores 1"))
     (sala (nombre "Fila 1") (zona "Zona de Servidores 1") (temperatura_min 27) (temperatura_max 29) (humedad_min 40) (humedad_max 50))
     (sala (nombre "Fila 2") (zona "Zona de Servidores 1") (temperatura_min 27) (temperatura_max 29) (humedad_min 40) (humedad_max 50))
-    (sala (nombre "Cuarto de climatización") (zona "Servidores 2"))
+    (sala (nombre "Cuarto de climatización 2") (zona "Servidores 2"))
     (sala (nombre "Fila 2.1") (zona "Servidores 2") (temperatura_min 27) (temperatura_max 29) (humedad_min 40) (humedad_max 50))
     (sala (nombre "Fila 2.2") (zona "Servidores 2") (temperatura_min 27) (temperatura_max 29) (humedad_min 40) (humedad_max 50))
     (sala (nombre "Sala de control") (zona "Alerta"))
@@ -170,14 +170,23 @@
    (sensor (sala "Reactor Nuclear") (tipo temperatura) (valor 20))
    (sensor (sala "Reactor Nuclear") (tipo humedad) (valor 20))
    
-   (sensor (sala "Cuarto de climatización") (tipo temperatura) (valor 20))
-   (sensor (sala "Cuarto de climatización") (tipo humedad) (valor 20))
+   (sensor (sala "Cuarto de climatización 1") (tipo temperatura) (valor 20))
+   (sensor (sala "Cuarto de climatización 1") (tipo humedad) (valor 20))
+
+   (sensor (sala "Cuarto de climatización 2") (tipo temperatura) (valor 20))
+   (sensor (sala "Cuarto de climatización 2") (tipo humedad) (valor 20))
    
    (sensor (sala "Fila 1") (tipo temperatura) (valor 20))
    (sensor (sala "Fila 1") (tipo humedad) (valor 20))
    
    (sensor (sala "Fila 2") (tipo temperatura) (valor 20))
    (sensor (sala "Fila 2") (tipo humedad) (valor 20))
+
+   (sensor (sala "Fila 2.1") (tipo temperatura) (valor 20))
+   (sensor (sala "Fila 2.1") (tipo humedad) (valor 20))
+
+   (sensor (sala "Fila 2.2") (tipo temperatura) (valor 20))
+   (sensor (sala "Fila 2.2") (tipo humedad) (valor 20))
    
    (sensor (sala "Sala de control") (tipo temperatura) (valor 20))
    (sensor (sala "Sala de control") (tipo humedad) (valor 20))
@@ -220,9 +229,12 @@
    (ventilador (sala "Generador geotérmico"))
    (ventilador (sala "Generador de reserva"))
    (ventilador (sala "Reactor Nuclear"))
-   (ventilador (sala "Cuarto de climatización"))
+   (ventilador (sala "Cuarto de climatización 1"))
+   (ventilador (sala "Cuarto de climatización 2"))
    (ventilador (sala "Fila 1"))
    (ventilador (sala "Fila 2"))
+   (ventilador (sala "Fila 2.1"))
+   (ventilador (sala "Fila 2.2"))
    (ventilador (sala "Sala de control"))
    (ventilador (sala "Sistema de extinción por agua"))
    (ventilador (sala "Sistema de extinción por gas"))
@@ -258,6 +270,10 @@
    (rack (id 7) (sala "Fila 2") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 230))
    (rack (id 8) (sala "Disco duro") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 212))
    (rack (id 9) (sala "Disco duro") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 218))
+   (rack (id 10) (sala "Fila 2.1") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 220))
+   (rack (id 11) (sala "Fila 2.1") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 225))
+   (rack (id 12) (sala "Fila 2.2") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 220))
+   (rack (id 13) (sala "Fila 2.2") (temperatura 20) (humedad 20) (temperatura_min 0) (temperatura_max 30) (voltaje 230))
 )
 
 
