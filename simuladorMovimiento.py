@@ -57,7 +57,6 @@ while True:
     # Correr el motor de inferencia
     environment.run()
 
-
     # Esperar un rato
     time.sleep(2)
 
